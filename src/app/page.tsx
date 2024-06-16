@@ -1,7 +1,21 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Box } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  return <Box></Box>;
+  const { t, i18n } = useTranslation();
+  return (
+    <Box>
+      {t("welcome")}
+      <Button
+        onClick={() => {
+          i18n.changeLanguage(i18n.language === "en" ? "tr" : "en");
+        }}
+      >
+        bas
+      </Button>
+    </Box>
+  );
 }
