@@ -1,18 +1,14 @@
 "use client";
 import React, { useCallback } from "react";
 import EasyTravelIcon from "@/components/logos/EasyTravelIcon";
-import {
-  Box,
-  Button,
-  Flex,
-  Text,
-  useBreakpoint,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { Formik, Field, Form } from "formik";
 import FormikInput from "@/components/formik-elements/FormikInput";
+import { useTranslation } from "react-i18next";
+import FlagPopover from "@/components/FlagPopover";
 
 const Login = () => {
+  const { t } = useTranslation();
   // const test = useBreakpointValue({
   //   xs: "0em", // 0px
   //   sm: "30em", // 480px
@@ -36,6 +32,9 @@ const Login = () => {
       backgroundColor={"#f2f2f2"}
       flexDirection={["column", "column", "row"]}
     >
+      <Box position={"fixed"} top={4} right={4}>
+        <FlagPopover />
+      </Box>
       <Flex
         width={"60%"}
         height={"100dvh"}
@@ -50,9 +49,9 @@ const Login = () => {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Text fontSize={30}>Hoş geldiniz</Text>
+          <Text fontSize={30}>{t("welcome")}</Text>
           <Text fontSize={16} color={"muteText"}>
-            Lütfen giriş bilgileriniz ile devam ediniz.
+            {t("login_sub_text")}
           </Text>
         </Flex>
       </Flex>
@@ -79,7 +78,7 @@ const Login = () => {
             marginBottom={"80px"}
           >
             <Text fontWeight={500} fontSize={"24px"} userSelect={"none"}>
-              Giriş Yap
+              {t("login")}
             </Text>
             <Box
               width={"100%"}
@@ -101,13 +100,13 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="E-posta"
+                  placeholder={t("email")}
                 />
                 <FormikInput
                   id="password"
                   name="password"
                   type="password"
-                  placeholder="Sifre"
+                  placeholder={t("password")}
                 />
                 <Text
                   width={"max-content"}
@@ -117,7 +116,7 @@ const Login = () => {
                   _hover={{ color: "secondary" }}
                   transition={"color 0.3s"}
                 >
-                  Parolamı unuttum
+                  {t("forgot_password")}
                 </Text>
                 <Button
                   type="submit"
@@ -126,7 +125,7 @@ const Login = () => {
                   _hover={{ backgroundColor: "secondary" }}
                   transition={"background-color 0.3s"}
                 >
-                  Giriş Yap
+                  {t("login")}
                 </Button>
               </Flex>
             </Form>

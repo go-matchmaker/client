@@ -17,4 +17,14 @@ export const chakraUiTheme = extendTheme({
     primary: "#0e3e5b",
     secondary: "#f89913",
   },
+  shadows: {
+    popover: "0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
+  },
+  zIndexLevels: {
+    veryHigh: 100,
+    high: 80,
+    medium: 60,
+    low: 40,
+    veryLow: 20,
+  },
 });

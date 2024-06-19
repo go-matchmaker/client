@@ -1,3 +1,8 @@
 {
-  "welcome": "Welcome"
+  "login_sub_text": "Please continue with your login information.",
+  "login": "Login",
+  "welcome": "Welcome",
+  "forgot_password": "Forgot your password?",
+  "email": "Email",
+  "password": "Password"
 }

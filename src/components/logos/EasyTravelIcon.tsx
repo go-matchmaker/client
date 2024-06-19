@@ -1,17 +1,13 @@
-import React from "react";
+import React, { FC, SVGProps } from "react";
 
-const EasyTravelIcon = ({
-  width,
-  height,
-  style,
-}: React.SVGProps<SVGSVGElement>) => {
+const EasyTravelIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width || "50px"}
-      height={height || "50px"}
+      width={"50px"}
+      height={"50px"}
       viewBox="0 0 193.288 62.146"
-      style={style}
+      {...props}
     >
       <g
         id="Group_2"

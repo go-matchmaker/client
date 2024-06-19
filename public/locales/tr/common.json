@@ -1,3 +1,8 @@
 {
-  "welcome": "Hoş geldiniz"
+  "login_sub_text": "Lütfen giriş bilgileriniz ile devam ediniz.",
+  "login": "Giriş Yap",
+  "welcome": "Hoş geldiniz",
+  "forgot_password": "Parolanızı mı unuttunuz?",
+  "email": "E-posta",
+  "password": "Şifre"
 }
