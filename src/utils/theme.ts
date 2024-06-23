@@ -5,7 +5,7 @@ export const chakraUiTheme = extendTheme({
     body: `'Outfit', sans-serif`,
   },
   breakpoints: {
-    xs: "0em", // 0px
+    base: "0em", // 0px
     sm: "30em", // 480px
     md: "48em", // 768px
     lg: "62em", // 992px
@@ -16,6 +16,7 @@ export const chakraUiTheme = extendTheme({
     muteText: "#6b6b6b",
     primary: "#0e3e5b",
     secondary: "#f89913",
+    login: "#f2f2f2",
   },
   shadows: {
     popover: "0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
