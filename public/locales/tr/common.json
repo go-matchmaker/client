@@ -13,5 +13,6 @@
   "model": "Model",
   "color": "Renk",
   "fuel": "Yakıt",
-  "new_ticket_create": "Yeni Bilet Ekle"
+  "new_ticket_create": "Yeni Bilet Ekle",
+  "pnr_inquiry": "PNR Sorgulama"
 }

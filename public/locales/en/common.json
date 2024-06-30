@@ -13,5 +13,6 @@
   "model": "Model",
   "color": "Color",
   "fuel": "Fuel",
-  "new_ticket_create": "New Ticket Create"
+  "new_ticket_create": "New Ticket Create",
+  "pnr_inquiry": "PNR Inquiry"
 }
