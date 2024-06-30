@@ -27,11 +27,19 @@ const SubMenu: FC<Props> = ({ data, isOpen }) => {
       {data?.subMenu?.map((item) => {
         const isHoveredd = isSubMenuHovered?.id === item.id;
         return (
-          <Flex
+          <Link
             key={item.id}
-            alignItems={"center"}
-            padding={"4px 14px"}
-            marginLeft={"22px"}
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              padding: "4px 14px",
+              marginLeft: "22px",
+              color: isHoveredd ? "white" : chakraUiTheme.colors.darkWhite,
+              whiteSpace: "nowrap",
+              transition: "color 0.3s",
+            }}
+            href={item.path}
             onMouseEnter={() =>
               setIsSubMenuHovered({ id: item.id, hovered: true })
             }
@@ -48,17 +56,8 @@ const SubMenu: FC<Props> = ({ data, isOpen }) => {
               marginRight={"10px"}
               transition={"background-color 0.3s"}
             />
-            <Link
-              style={{
-                width: "100%",
-                color: isHoveredd ? "white" : chakraUiTheme.colors.darkWhite,
-                whiteSpace: "nowrap",
-              }}
-              href={item.path}
-            >
-              {t(item.label)}
-            </Link>
-          </Flex>
+            {t(item.label)}
+          </Link>
         );
       })}
     </Flex>

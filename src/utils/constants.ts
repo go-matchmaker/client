@@ -14,7 +14,7 @@ export const sideMenu: SideMenu[] = [
     id: 2,
     icon: TicketIcon,
     label: "ticket_management",
-    path: undefined,
+    path: "",
     subMenu: [
       {
         id: 1,

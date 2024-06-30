@@ -7,6 +7,7 @@ import AngleDownIcon from "../icons/AngleDownIcon";
 import { useTranslation } from "react-i18next";
 import EasyTravelIcon from "../logos/EasyTravelIcon";
 import { chakraUiTheme } from "@/utils/theme";
+import Link from "next/link";
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -50,12 +51,16 @@ const Sidebar = () => {
             const isItemHovered = isHovered?.id === item.id;
             return (
               <Box as="li" key={item.id} userSelect={"none"}>
-                <Flex
-                  width={"100%"}
-                  alignItems={"center"}
-                  flexWrap={"nowrap"}
-                  padding={"4px 14px"}
-                  cursor={"pointer"}
+                <Link
+                  href={item.path as string}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexWrap: "nowrap",
+                    width: "100%",
+                    padding: "4px 14px",
+                    cursor: "pointer",
+                  }}
                   onMouseEnter={() => {
                     setIsHovered({ id: item.id, hovered: true });
                   }}
@@ -109,7 +114,7 @@ const Sidebar = () => {
                       }}
                     />
                   )}
-                </Flex>
+                </Link>
                 <SubMenu isOpen={isSidebarOpen} data={item} />
               </Box>
             );
