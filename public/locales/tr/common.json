@@ -4,5 +4,14 @@
   "welcome": "Hoş geldiniz",
   "forgot_password": "Parolanızı mı unuttunuz?",
   "email": "E-posta",
-  "password": "Şifre"
+  "password": "Şifre",
+  "home": "Anasayfa",
+  "ticket_management": "Bilet Yönetimi",
+  "car_management": "Araba Yönetimi",
+  "new_car_create": "Yeni Araba Ekle",
+  "brand": "Marka",
+  "model": "Model",
+  "color": "Renk",
+  "fuel": "Yakıt",
+  "new_ticket_create": "Yeni Bilet Ekle"
 }

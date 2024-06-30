@@ -13,19 +13,27 @@ export const chakraUiTheme = extendTheme({
     xxl: "96em", // 1536px
   },
   colors: {
+    darkWhite: "#cecece",
     muteText: "#6b6b6b",
     primary: "#0e3e5b",
+    darkPrimary: "#1e1e2d",
     secondary: "#f89913",
     login: "#f2f2f2",
   },
   shadows: {
     popover: "0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
   },
-  zIndexLevels: {
-    veryHigh: 100,
-    high: 80,
-    medium: 60,
-    low: 40,
-    veryLow: 20,
+  borders: {
+    defaultSolid: "1px solid #6b6b6b",
+    defaultDotted: "1px dotted #6b6b6b",
+  },
+  sizes: {
+    topbarHeight: "70px",
+    sidebarWidth: "50px",
+    sidebarOpenWidth: "250px",
+  },
+  zIndices: {
+    topbar: 50,
+    sidebar: 60,
   },
 });
