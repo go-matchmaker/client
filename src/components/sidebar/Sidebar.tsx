@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { sideMenu } from "@/utils/constants";
-import { SideMenu } from "@/utils/types";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import SubMenu from "./SubMenu";
-import AngleDownIcon from "../icons/AngleDownIcon";
 import { useTranslation } from "react-i18next";
 import EasyTravelIcon from "../logos/EasyTravelIcon";
 import { chakraUiTheme } from "@/utils/theme";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
+  const pathName = usePathname();
   const { t } = useTranslation();
-  const [clickedMenuInfo, setClickedMenuInfo] = useState<SideMenu>();
+  const [isSidebarMenuHovered, setIsSidebarMenuHovered] = useState(false);
   const [isHovered, setIsHovered] = useState<{
     id: number | undefined;
     hovered: boolean;
@@ -34,6 +34,12 @@ const Sidebar = () => {
       overflowX={"hidden"}
       transition={"width 0.3s"}
       _hover={{ width: "sidebarOpenWidth" }}
+      onMouseEnter={() => {
+        setIsSidebarMenuHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsSidebarMenuHovered(false);
+      }}
     >
       <Box
         width={"100%"}
@@ -46,11 +52,19 @@ const Sidebar = () => {
         <Box as="ul" width={"100%"}>
           {sideMenu.map((item) => {
             const Icon = item.icon;
-            const isSidebarOpen =
-              item.id === clickedMenuInfo?.id && !!item?.subMenu;
-            const isItemHovered = isHovered?.id === item.id;
+
+            if (!!item.subMenu) {
+              return (
+                <SubMenu
+                  key={item.id}
+                  data={item}
+                  isSidebarMenuHovered={isSidebarMenuHovered}
+                />
+              );
+            }
+
             return (
-              <Box as="li" key={item.id} userSelect={"none"}>
+              <Box key={item.id} as="li" padding={0} margin={0}>
                 <Link
                   href={item.path as string}
                   style={{
@@ -58,8 +72,10 @@ const Sidebar = () => {
                     alignItems: "center",
                     flexWrap: "nowrap",
                     width: "100%",
-                    padding: "4px 14px",
+                    height: "100%",
+                    padding: "8px 0px",
                     cursor: "pointer",
+                    userSelect: "none",
                   }}
                   onMouseEnter={() => {
                     setIsHovered({ id: item.id, hovered: true });
@@ -67,55 +83,33 @@ const Sidebar = () => {
                   onMouseLeave={() => {
                     setIsHovered({ id: undefined, hovered: false });
                   }}
-                  onClick={() => {
-                    setClickedMenuInfo((prev) => {
-                      if (prev?.id === item.id) {
-                        return;
-                      }
-                      return item;
-                    });
-                  }}
                 >
                   <Icon
-                    width={"20px"}
-                    height={"20px"}
+                    width={"18px"}
+                    height={"18px"}
                     fill={
-                      isItemHovered ? "white" : chakraUiTheme.colors.darkWhite
+                      isHovered?.hovered || item.path === pathName
+                        ? "white"
+                        : chakraUiTheme.colors.darkWhite
                     }
                     style={{
-                      minWidth: "20px",
-                      marginRight: "16px",
+                      minWidth: "50px",
                       transition: "fill 0.3s",
                     }}
                   />
                   <Text
-                    minWidth={"170px"}
                     whiteSpace={"nowrap"}
+                    width={"100%"}
                     color={
-                      isItemHovered ? "white" : chakraUiTheme.colors.darkWhite
+                      isHovered?.hovered || item.path === pathName
+                        ? "white"
+                        : chakraUiTheme.colors.darkWhite
                     }
                     transition={"color 0.3s"}
                   >
                     {t(item.label)}
                   </Text>
-                  {!!item.subMenu && (
-                    <AngleDownIcon
-                      width={"16px"}
-                      height={"16px"}
-                      fill={
-                        isItemHovered ? "white" : chakraUiTheme.colors.darkWhite
-                      }
-                      style={{
-                        minWidth: "16px",
-                        transform: isSidebarOpen
-                          ? "rotateX(180deg)"
-                          : "rotateX(0deg)",
-                        transition: "transform 0.3s, fill 0.3s",
-                      }}
-                    />
-                  )}
                 </Link>
-                <SubMenu isOpen={isSidebarOpen} data={item} />
               </Box>
             );
           })}

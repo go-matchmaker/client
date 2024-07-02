@@ -7,3 +7,9 @@ export enum Pages {
   Home = "home",
   Login = "login",
 }
+
+export enum SidebarIds {
+  Home = 1,
+  TicketManagement,
+  CarManagement,
+}

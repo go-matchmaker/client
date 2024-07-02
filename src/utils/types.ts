@@ -1,13 +1,17 @@
 import { FC, SVGProps } from "react";
+import { SidebarIds } from "./enums";
 
-export type SideMenu = {
+export type SidebarSubMenu = {
   id: number;
-  icon: FC<SVGProps<SVGSVGElement>>;
   label: string;
   path: string;
-  subMenu?: {
-    id: number;
-    label: string;
-    path: string;
-  }[];
+};
+
+export type SideMenu = {
+  id: SidebarIds;
+  icon: FC<SVGProps<SVGSVGElement>>;
+  label: string;
+  path?: string;
+  isSubMenuOpen?: boolean;
+  subMenu?: SidebarSubMenu[];
 };
