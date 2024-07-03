@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Box } from "@chakra-ui/react";
 import { chakraUiTheme } from "@/utils/theme";
 import Sidebar from "./sidebar/Sidebar";
-import Topbar from "./TopBar";
+import Topbar from "./Topbar";
 
 interface Props {
   children: React.ReactNode;
