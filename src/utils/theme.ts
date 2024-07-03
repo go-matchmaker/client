@@ -19,6 +19,7 @@ export const chakraUiTheme = extendTheme({
     darkPrimary: "#1e1e2d",
     secondary: "#f89913",
     login: "#f2f2f2",
+    mainBackgroundColor: "#f4f4f4",
   },
   shadows: {
     popover: "0px 0px 10px 0px rgba(0, 0, 0, 0.1)",

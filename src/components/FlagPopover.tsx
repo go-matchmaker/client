@@ -61,6 +61,7 @@ const FlagPopover = () => {
             transition={"background-color 0.3s"}
             onClick={() => {
               i18n.changeLanguage(Language.English);
+              window.localStorage.setItem("language", Language.English);
               setIsOptionShown(false);
             }}
           >
@@ -77,6 +78,7 @@ const FlagPopover = () => {
             transition={"background-color 0.3s"}
             onClick={() => {
               i18n.changeLanguage(Language.Turkish);
+              window.localStorage.setItem("language", Language.Turkish);
               setIsOptionShown(false);
             }}
           >

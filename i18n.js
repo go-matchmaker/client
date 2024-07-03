@@ -15,7 +15,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en", // Varsayılan dil
+  lng: window.localStorage.getItem("language") ?? "end", // Varsayılan dil
   fallbackLng: "en", // Kullanılacak dil çevirisi bulunamadığında kullanılacak dil
   interpolation: {
     escapeValue: false, // React zaten XSS koruması sağlıyor

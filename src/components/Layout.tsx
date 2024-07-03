@@ -13,7 +13,12 @@ const Layout: FC<Props> = ({ children }) => {
     <>
       <Topbar />
       <Sidebar />
-      <Box marginLeft={chakraUiTheme.sizes.sideBarWidth} marginTop={"70px"}>
+      <Box
+        as="main"
+        marginLeft={chakraUiTheme.sizes.sidebarWidth}
+        marginTop={chakraUiTheme.sizes.topbarHeight}
+        backgroundColor={"mainBackgroundColor"}
+      >
         {children}
       </Box>
     </>
