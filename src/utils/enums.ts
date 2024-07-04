@@ -13,3 +13,8 @@ export enum SidebarIds {
   TicketManagement,
   CarManagement,
 }
+
+export enum FlightDirection {
+  OneWay = "oneWay",
+  RoundTrip = "roundTrip",
+}
